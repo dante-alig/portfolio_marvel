@@ -1,0 +1,1031 @@
+/* Variables de couleur du thème Marvel */
+:root {
+  --marvel-red: #e62429;
+  --marvel-dark: #202020;
+  --marvel-gray: #767676;
+  --marvel-light: #ffffff;
+  --marvel-hover: #cc1f24;
+  --marvel-success: #28a745;
+  --marvel-error: #dc3545;
+  --marvel-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- GENERAL ------------- */
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 60px;
+  color: white;
+  font-family: "MarvelRegular";
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1634px;
+  margin: 0 auto;
+}
+
+.loading-logo {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 12px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ---------- HEADER ------------- */
+header {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1b1d;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0px 30px 0px 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
+
+menu {
+  display: flex;
+  color: white;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-right: 40px;
+}
+
+menu a {
+  background-color: red;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.menu-favoris {
+  border: 1px solid gray;
+  background-color: transparent;
+}
+
+.circle-icon {
+  font-size: 22px;
+}
+
+.conexion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+}
+
+.conexion p {
+  margin-left: 10px;
+}
+
+.main-navigation {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-right: 40px;
+  color: white;
+}
+
+.menu-favoris {
+  border: 1px solid gray;
+  background-color: black;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+}
+
+.nav-link {
+  background-color: red;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+/* SEARCH BAR */
+
+.hide-search {
+  visibility: hidden;
+  background-color: red;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input::placeholder {
+  color: grey;
+}
+
+.search-bar ::placeholder {
+  text-transform: uppercase;
+}
+
+.search-bar input:focus {
+  background-color: black;
+  color: white;
+  padding-left: 40px;
+  outline: none;
+}
+
+form input {
+  width: 320px;
+  height: 37px;
+  border: 1px solid #606162;
+  border-radius: 10px;
+  background-color: #1a1b1d;
+  padding-left: 40px;
+}
+*/ ::placeholder {
+  color: #2a2929;
+  text-transform: uppercase;
+}
+
+.magnifying-icon {
+  font-size: 16px;
+  color: red;
+  position: absolute;
+  left: 33px;
+}
+
+/* Container de recherche */
+.search-bar {
+  position: relative;
+  width: 280px;
+  max-width: 300px;
+  margin: 0 10px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Style de l'input de recherche */
+.search-style {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  background-color: transparent;
+  border: 2px solid var(--marvel-dark);
+  border-radius: 25px;
+  font-size: 14px;
+  color: var(--marvel-dark);
+  font-size: 11px;
+  transition: all 0.3s ease;
+}
+
+.search-style::placeholder {
+  color: var(--marvel-gray);
+  opacity: 0.8;
+}
+
+.search-style:focus {
+  outline: none;
+  border-color: var(--marvel-red);
+  box-shadow: 0 0 0 3px rgba(230, 36, 41, 0.2);
+}
+
+/* Style de l'icône de recherche */
+.magnifying-icon {
+  position: absolute;
+  left: 15px;
+  color: var(--marvel-gray);
+  font-size: 16px;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.search-style:focus + .magnifying-icon {
+  color: var(--marvel-red);
+}
+
+/* Animation lors de la frappe */
+.search-style:not(:placeholder-shown) {
+  border-color: var(--marvel-red);
+}
+
+/* Style pour cacher la barre de recherche */
+.hide-search {
+  display: none;
+}
+
+/* Styles pour l'accessibilité */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Media Queries pour la responsivité */
+@media screen and (max-width: 768px) {
+  .search-bar {
+    max-width: 250px;
+  }
+
+  .search-style {
+    font-size: 13px;
+    padding: 8px 35px 8px 12px;
+  }
+
+  .magnifying-icon {
+    font-size: 14px;
+    right: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-bar {
+    max-width: 200px;
+  }
+
+  .search-style {
+    font-size: 12px;
+    padding: 7px 30px 7px 10px;
+  }
+}
+
+/* Animation de focus */
+@keyframes focusAnimation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(230, 36, 41, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(230, 36, 41, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(230, 36, 41, 0.4);
+  }
+}
+
+.search-style:focus {
+  animation: focusAnimation 2s infinite;
+}
+
+/* ---------- MODAL------------- */
+
+.bg-display {
+  display: none;
+}
+
+.modal-box {
+  width: 550px;
+  height: 400px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  border-radius: 15px;
+  background-color: #e3e1e1;
+  overflow: hidden;
+}
+
+.windows {
+  background-color: red;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.windows p {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.modal-box input::placeholder {
+  color: white;
+}
+
+.modal-box ::placeholder {
+  padding-left: 15px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.modal-box input:focus {
+  color: white;
+  background-color: blue;
+  padding-left: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-box form div {
+  margin: 15px;
+}
+
+.modal-box form input {
+  width: 320px;
+  height: 37px;
+  border-radius: 10px;
+  background-color: #1a1b1d;
+  color: white;
+  padding-left: 15px;
+}
+
+.cover {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box button {
+  all: unset;
+  text-align: center;
+  width: 200px;
+  height: 47px;
+  background-color: #ec1c23;
+  color: white;
+  border-radius: 5px;
+}
+
+form p {
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.modal-switch-infos {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.modal-switch-infos:hover {
+  text-decoration: underline;
+}
+
+/* ---------- HOME ------------- */
+
+.container-box {
+  width: 100%;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.perso {
+  width: 183px;
+  height: 226px;
+  background-color: black;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.perso img {
+  width: 183px;
+  height: 226px;
+  object-fit: cover;
+  opacity: 85%;
+}
+
+.perso img:hover {
+  opacity: 100%;
+}
+
+.perso-infos {
+  height: 45px;
+  width: 185px;
+  position: absolute;
+  bottom: 0px;
+  padding: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #b0c4de 0%,
+    #c0c0c0 20%,
+    #d3d3d3 40%,
+    #c0c0c0 60%,
+    #a9a9a9 80%,
+    #808080 100%
+  );
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- CHARACTER ------------- */
+
+.character-box {
+  width: 1260px;
+  margin: 50px auto;
+  background-color: black;
+  display: flex;
+}
+
+.character-box img {
+  width: 1260px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.character-box h1 {
+  margin: 30px 0px 30px 0px;
+  text-align: left;
+}
+
+.character-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ec1c23;
+  padding: 50px;
+}
+
+.character-box button {
+  all: unset;
+  text-align: center;
+  width: 250px;
+  height: 47px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: 30px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.character-box p {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 20px;
+  text-align: left;
+}
+
+.character-bibliography-box {
+  width: 1260px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.character-bibliography img {
+  width: 230px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.star-icon {
+  font-size: 15px;
+  margin: 0px 10px 0px 10px;
+}
+
+/* ---------- COMICS ------------- */
+
+.comics-box {
+  width: 100%;
+  margin-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comics {
+  width: 490px;
+  height: 275px;
+  background-color: #292828;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  color: white;
+  display: flex;
+  opacity: 80%;
+}
+
+.comics:hover {
+  opacity: 100%;
+}
+
+.comics img {
+  width: 183px;
+  height: 275px;
+  object-fit: contain;
+  opacity: 85%;
+}
+
+.comics-infos {
+  padding: 20px;
+  line-height: 22px;
+}
+
+.comics-infos p {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 90px;
+  overflow: hidden;
+  color: rgb(239, 235, 235);
+}
+
+.comics-infos h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: white;
+  line-height: 25px;
+}
+
+.comics-infos button {
+  all: unset;
+  text-align: center;
+  width: 270px;
+  height: 30px;
+  margin-top: 20px;
+  border: 1px solid #1a1b1d;
+  background-color: black;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.comics-infos button:hover {
+  background-color: red;
+}
+
+/* ---------- COMIC ------------- */
+
+.comic-box {
+  width: 1260px;
+  margin: 50px auto;
+  background-color: black;
+  display: flex;
+}
+.comic-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ec1c23;
+  padding: 50px;
+}
+
+.comic-box img {
+  width: 1260px;
+  object-fit: cover;
+}
+
+.comic-box button {
+  all: unset;
+  text-align: center;
+  width: 250px;
+  height: 47px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: 30px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.comic-box p {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 20px;
+  text-align: left;
+}
+
+/* ---------- LIKES ------------- */
+
+.square-box {
+  position: relative;
+}
+
+.square-icon {
+  color: black;
+  font-size: 30px;
+  position: absolute;
+  z-index: 10;
+  right: -10px;
+  top: -220px;
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border: 2px solid black;
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.square-icon:hover {
+  opacity: 100%;
+}
+
+/* Style du bouton */
+.add-to-likes-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--marvel-red);
+  color: var(--marvel-light);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-likes-button:hover:not(:disabled) {
+  background-color: var(--marvel-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-likes-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Style de l'icône étoile */
+.star-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.star-icon--active {
+  transform: scale(1.2);
+  color: #ffd700;
+  animation: starPulse 0.3s ease-in-out;
+}
+
+/* États du bouton */
+.add-to-likes-button.added {
+  background-color: var(--marvel-success);
+}
+
+.add-to-likes-button.error {
+  background-color: var(--marvel-error);
+}
+
+/* Message d'erreur */
+.error-message {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--marvel-error);
+  font-size: 12px;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Texte du bouton */
+.button-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes starPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Effet de ripple au clic */
+.add-to-likes-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.add-to-likes-button:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .add-to-likes-button {
+    padding: 8px 16px;
+  }
+
+  .star-icon {
+    font-size: 16px;
+  }
+
+  .button-text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .add-to-likes-button {
+    padding: 6px 12px;
+  }
+
+  .star-icon {
+    font-size: 14px;
+  }
+
+  .button-text {
+    font-size: 12px;
+  }
+}
+
+/* ---------- MEDIA QUERIES PHONES ------------- */
+
+@media (max-width: 576px) {
+  .conexion {
+    display: none;
+  }
+
+  body {
+    background-color: #0f0e0e;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  header {
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1b1d;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 0px 30px 0px 0px;
+    background-color: black;
+  }
+
+  .logo img {
+    width: 220px;
+    height: 220px;
+    position: relative;
+    left: -20px;
+    object-fit: cover;
+  }
+
+  menu {
+    margin-right: 0px;
+    gap: 20px;
+    position: relative;
+    left: -20px;
+  }
+
+  menu a {
+    background-color: transparent;
+    padding: 0px;
+  }
+
+  .menu-favoris {
+    display: none;
+  }
+
+  .container-box {
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .perso {
+    width: 450px;
+    height: 451px;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .perso img {
+    width: 100%;
+    height: 452px;
+    object-fit: cover;
+    opacity: 85%;
+  }
+
+  .perso-infos {
+    height: 65px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    padding: 20px;
+    font-size: 11px;
+  }
+
+  .comics-box {
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .comics {
+    width: 490px;
+    height: 275px;
+    background-color: #292828;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    color: white;
+    display: flex;
+    opacity: 80%;
+  }
+
+  .comics:hover {
+    opacity: 100%;
+  }
+
+  .comics img {
+    width: 183px;
+    height: 275px;
+    object-fit: contain;
+    opacity: 85%;
+  }
+
+  .comics-infos button {
+    all: unset;
+    text-align: center;
+    width: 140px;
+    height: 30px;
+    margin-top: 20px;
+    border: 1px solid #1a1b1d;
+    background-color: black;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  .comics-infos p {
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .comic-box {
+    width: 100%;
+    background-color: black;
+    display: flex;
+  }
+
+  .comic-box img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .character-bibliography-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .character-bibliography img {
+    width: 180px;
+    height: 262px;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}

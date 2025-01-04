@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "MarvelRegular"; /* <== On donne un nom unique */
+  src: url("../fonts/MarvelRegular-Dj83.ttf") format("truetype"); /* <== On donne l'emplacement du fichier de police et on précise le format */
+  font-weight: normal; /* <== On définit le poids de la police */
+  font-style: normal; /* <== On définit le style de la police */
+  font-display: swap; /* <== On spécifie le comportement d'affichage de la police. Ca indique que le navigateur doit afficher une police de secours immédiatement, puis charger la police personnalisée en arrière-plan. */
+}
+
+@font-face {
+  font-family: "MarvelRegular-Med";
+  src: url("../fonts/MarvelRegular-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
