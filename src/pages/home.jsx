@@ -1,18 +1,20 @@
 // Import des dépendances nécessaires
-import axios from "axios";                     // Pour les requêtes HTTP
-import { useEffect, useState } from "react";   // Hooks React
-import { Link } from "react-router-dom";       // Pour la navigation
-import PropTypes from 'prop-types';           // Pour la validation des props
-import fond from "../images/fond.png";         // Image par défaut
+import axios from "axios"; // Pour les requêtes HTTP
+import { useEffect, useState } from "react"; // Hooks React
+import { Link } from "react-router-dom"; // Pour la navigation
+import PropTypes from "prop-types"; // Pour la validation des props
+import fond from "../images/fond.png"; // Image par défaut
 import loadingAnim from "../assets/marvel_logo.png"; // Animation de chargement
+import { motion } from "framer-motion"; // Import de Framer Motion
 
 // URL de base de l'API
 const BASE_URL = "https://test--marvel-backend--dqd24mcv82s5.code.run/marvel";
 
 // Composant pour afficher l'image d'un personnage
 const CharacterThumbnail = ({ thumbnail, name }) => {
-  const hasValidImage = !thumbnail.path.includes("image_not_available");
-  
+  const hasValidImage = !thumbnail.path.includes("image_not_available") &&
+                       !thumbnail.path.includes("4c002e0305708");
+
   return (
     <img
       src={hasValidImage ? `${thumbnail.path}.${thumbnail.extension}` : fond}
@@ -31,17 +33,21 @@ const CharacterInfo = ({ name }) => (
 
 // Composant pour afficher une carte de personnage
 const CharacterCard = ({ character }) => (
-  <Link 
-    to={`/character/${character._id}`} 
-    className="perso" 
-    key={character._id}
+  <motion.div
+    className="perso"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    whileHover={{ 
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }}
+    transition={{ duration: 0.5 }}
   >
-    <CharacterThumbnail 
-      thumbnail={character.thumbnail}
-      name={character.name}
-    />
-    <CharacterInfo name={character.name} />
-  </Link>
+    <Link to={`/character/${character._id}`}>
+      <CharacterThumbnail thumbnail={character.thumbnail} name={character.name} />
+      <CharacterInfo name={character.name} />
+    </Link>
+  </motion.div>
 );
 
 // Composant pour afficher le message de chargement
@@ -69,6 +75,7 @@ const Home = ({ search }) => {
         // Récupération des personnages depuis l'API
         const response = await axios.get(`${BASE_URL}/characters`);
         const allCharacters = response.data.results;
+        console.log(allCharacters);
 
         // Filtrage des personnages selon la recherche
         const filteredCharacters = search
@@ -81,7 +88,8 @@ const Home = ({ search }) => {
       } catch (error) {
         console.error("Error fetching characters:", error);
         setError(
-          error.message || "Une erreur est survenue lors du chargement des personnages"
+          error.message ||
+            "Une erreur est survenue lors du chargement des personnages"
         );
       } finally {
         setLoading(false);
@@ -122,10 +130,7 @@ const Home = ({ search }) => {
     <main>
       <div className="container-box">
         {characters.map((character) => (
-          <CharacterCard 
-            key={character._id} 
-            character={character} 
-          />
+          <CharacterCard key={character._id} character={character} />
         ))}
       </div>
     </main>
@@ -134,19 +139,19 @@ const Home = ({ search }) => {
 
 // Validation des props
 Home.propTypes = {
-  search: PropTypes.string.isRequired
+  search: PropTypes.string.isRequired,
 };
 
 CharacterThumbnail.propTypes = {
   thumbnail: PropTypes.shape({
     path: PropTypes.string.isRequired,
-    extension: PropTypes.string.isRequired
+    extension: PropTypes.string.isRequired,
   }).isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 CharacterInfo.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 CharacterCard.propTypes = {
@@ -155,9 +160,9 @@ CharacterCard.propTypes = {
     name: PropTypes.string.isRequired,
     thumbnail: PropTypes.shape({
       path: PropTypes.string.isRequired,
-      extension: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired
+      extension: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Home;
