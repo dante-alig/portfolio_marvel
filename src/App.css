@@ -708,7 +708,16 @@ form p {
 /* ---------- LIKES ------------- */
 
 .square-box {
+  display: none;
   position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.perso:hover .square-box {
+  display: block;
 }
 
 .square-icon {
@@ -716,14 +725,15 @@ form p {
   font-size: 30px;
   position: absolute;
   z-index: 10;
-  right: -10px;
-  top: -220px;
+  right: -30px;
+  top: -225px;
   height: 20px;
   width: 20px;
   background-color: red;
   border: 2px solid black;
   opacity: 70%;
   cursor: pointer;
+  border-radius: 100px;
 }
 
 .square-icon:hover {
@@ -1028,4 +1038,41 @@ form p {
     border-radius: 10px;
     overflow: hidden;
   }
+}
+
+/* Style pour la page des favoris vides */
+.empty-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-favorites h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #e62429;
+}
+
+.empty-favorites p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.explore-link {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: #e62429;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.explore-link:hover {
+  background-color: #c41e23;
 }

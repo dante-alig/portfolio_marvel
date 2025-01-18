@@ -122,7 +122,13 @@ const Likes = ({ token }) => {
   if (favorites.length === 0) {
     return (
       <main className="no-favorites">
-        <p>Vous n'avez pas encore de favoris</p>
+        <div className="empty-favorites">
+          <h2>Vous n'avez pas encore de favoris</h2>
+          <p>Explorez les personnages et les comics Marvel pour en ajouter !</p>
+          <Link to="/" className="explore-link">
+            Découvrir l'univers Marvel
+          </Link>
+        </div>
       </main>
     );
   }

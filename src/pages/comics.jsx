@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";       // Pour la navigation
 import PropTypes from 'prop-types';           // Pour la validation des props
 import fond from "../images/fond-comics.png";  // Image par défaut
 import loadingAnim from "../assets/marvel_logo.png"; // Animation de chargement
+import { motion } from "framer-motion";        // Pour les animations
 
 // URL de base de l'API
 const BASE_URL = "https://test--marvel-backend--dqd24mcv82s5.code.run/marvel";
@@ -35,17 +36,27 @@ const ComicInfo = ({ title, description }) => (
 
 // Composant pour afficher un comic individuel
 const ComicCard = ({ comic, index }) => (
-  <Link to={`/comic/${comic._id}`} className="comics" key={comic._id || index}>
-    <ComicThumbnail 
-      thumbnail={comic.thumbnail}
-      title={comic.title}
-      index={index}
-    />
-    <ComicInfo 
-      title={comic.title}
-      description={comic.description}
-    />
-  </Link>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    whileHover={{ 
+      scale: 1.05,
+      transition: { duration: 0.2 }
+    }}
+    transition={{ duration: 0.5 }}
+  >
+    <Link to={`/comic/${comic._id}`} className="comics" key={comic._id || index}>
+      <ComicThumbnail 
+        thumbnail={comic.thumbnail}
+        title={comic.title}
+        index={index}
+      />
+      <ComicInfo 
+        title={comic.title}
+        description={comic.description}
+      />
+    </Link>
+  </motion.div>
 );
 
 // Composant principal Comics
