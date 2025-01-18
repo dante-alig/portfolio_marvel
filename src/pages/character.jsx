@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';           // Pour la validation des props
 import fond from "../images/fond.png";         // Image par défaut
 import AddToLikes from "../components/addToLikes"; // Composant pour ajouter aux favoris
 import loadingAnim from "../assets/marvel_logo.png"; // Animation de chargement
+import { motion } from "framer-motion";        // Pour les animations
 
 // URL de base de l'API
 const BASE_URL = "https://test--marvel-backend--dqd24mcv82s5.code.run/marvel";
@@ -23,7 +24,17 @@ const CharacterImage = ({ thumbnail, alt }) => (
 const ComicsList = ({ comics }) => (
   <div className="character-bibliography-box">
     {comics.map((comic, index) => (
-      <div className="character-bibliography" key={comic.id || index}>
+      <motion.div 
+        className="character-bibliography" 
+        key={comic.id || index}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 0.5,
+          delay: index * 0.1, // Ajoute un délai progressif basé sur l'index
+          ease: "easeOut"
+        }}
+      >
         {/* Affiche une image par défaut si l'image du comic n'est pas disponible */}
         {comic.thumbnail.path.includes("image_not_available") ? (
           <img src={fond} alt="fond" className="default-image" />
@@ -33,7 +44,7 @@ const ComicsList = ({ comics }) => (
             alt={`Comic ${index + 1}`}
           />
         )}
-      </div>
+      </motion.div>
     ))}
   </div>
 );
